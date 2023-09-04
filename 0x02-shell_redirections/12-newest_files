@@ -1,2 +1,2 @@
 #!/bin/bash
-files=$(ls -tprA | grep -v '/$' | head -10)
+ls -t | head
