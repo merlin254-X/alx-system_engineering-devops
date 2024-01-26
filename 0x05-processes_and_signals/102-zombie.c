@@ -1,4 +1,3 @@
-102-zombie.c
 /*
  * File: 102-zombie.c
  *
@@ -9,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <stddef.h>
 
 /**
  * infinite_while - Run an infinite while loop.
