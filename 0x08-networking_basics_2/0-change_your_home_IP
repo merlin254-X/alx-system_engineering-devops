@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Copy the original hosts file to a new file
+cp /etc/hosts ~/hosts.new
+
+# Update the new hosts file with the desired IP addresses using sed
+sed -i '1s/^/127.0.0.2\tlocalhost\n/' ~/hosts.new
+echo "8.8.8.8\tfacebook.com" >> ~/hosts.new
+
+# Replace the original hosts file with the modified one
+cp -f ~/hosts.new /etc/hosts
