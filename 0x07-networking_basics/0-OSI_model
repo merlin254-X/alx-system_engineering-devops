@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+# Script: 0-OSI_model
+# Description: This script provides information about the OSI model.
 
-2
-2
+# Output the description of the OSI model
+echo "The OSI model is a conceptual model that characterizes the communication
+functions of a telecommunication system without regard to their underlying
+internal structure and technology."
+
+# Output how the OSI model is organized
+echo "The OSI model is organized from the lowest to the highest level."
+
