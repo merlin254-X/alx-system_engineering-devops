@@ -1,1 +1,1 @@
-I love Puppet repo
+I love Puppet repository
