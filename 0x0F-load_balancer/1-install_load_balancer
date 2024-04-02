@@ -12,7 +12,8 @@ apt-get -y install haproxy
 server_config=\
 "
 Frontend html 
-        bind *:80        
+        bind *:80
+        mode http
         default_backend my_servers
 
 Backend my_servers
