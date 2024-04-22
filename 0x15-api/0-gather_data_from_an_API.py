@@ -26,10 +26,10 @@ if __name__ == "__main__":
 
     # List of completed tasks
     completed_tasks = []
-    
+
     # Total number of tasks
     total_tasks = len(todos)
-    
+
     # Iterate through the tasks to identify completed ones
     for todo in todos:
         if todo.get("completed"):
@@ -38,8 +38,13 @@ if __name__ == "__main__":
 
     # Prepare the output text for task completion status
     summary_text = "Employee {} is done with tasks({}/{}):"
-    print(summary_text.format(user.get("name"), len(completed_tasks), total_tasks))
-
+    print(
+            summary_text.format(
+                user.get("name"),
+                len(completed_tasks),
+                total_tasks
+                )
+    )
     # Print the titles of completed tasks with a tab and space for indentation
     for task in completed_tasks:
         print("\t ", task)  # Adding a tab and space for indentation

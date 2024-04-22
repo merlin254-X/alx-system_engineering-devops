@@ -17,7 +17,9 @@ if __name__ == "__main__":
 
     # Fetch user and TODO data
     user = requests.get(base_url + "users/{}".format(employee_id)).json()
-    todos = requests.get(base_url + "todos?userId={}".format(employee_id)).json()
+    todos = requests.get(
+            base_url + "todos?userId={}".format(employee_id)
+            ).json()
 
     # Structure the data as required
     tasks = {

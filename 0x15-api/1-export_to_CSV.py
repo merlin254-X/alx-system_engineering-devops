@@ -36,7 +36,7 @@ try:
             my_writer.writerow([
                 employee_id,          # User ID
                 user.get('username'),  # Username
-                todo.get('completed'), # Task completion status
+                todo.get('completed'),  # Task completion status
                 todo.get('title')      # Task title
             ])
 

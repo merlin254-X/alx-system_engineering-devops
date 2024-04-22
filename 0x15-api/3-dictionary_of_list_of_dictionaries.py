@@ -17,11 +17,12 @@ if __name__ == "__main__":
 
     # Iterate over each user to fetch their tasks
     for user in users:
-        user_id = str(user["id"])  # Convert user ID to string for the dictionary key
+        user_id = str(user["id"])  # Convert user ID to string for the dict key
         username = user["username"]  # Get username for each user
-        
+
         # Fetch all tasks for this user
-        todos = requests.get(base_url + "todos?userId={}".format(user_id)).json()
+        todos_url = f"{base_url}todos?userId={user_id}"
+        todos = requests.get(todos_url).json()
 
         # Store tasks in the required format
         all_tasks[user_id] = [
