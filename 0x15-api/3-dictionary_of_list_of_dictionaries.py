@@ -1,42 +1,31 @@
 #!/usr/bin/python3
 """
-Exports all tasks from all employees in a specified JSON format
+extend your Python script to export data in the JSON format
 """
 
 import json
 import requests
 
-if __name__ == "__main__":
-    base_url = 'https://jsonplaceholder.typicode.com/'
-
-    # Fetch all users
-    users = requests.get(base_url + "users").json()
-
-    # Initialize a dictionary to hold tasks for each user
-    all_tasks = {}
-
-    # Iterate over each user to fetch their tasks
+if __name__ == '__main__':
+    users = requests.get("http://jsonplaceholder.typicode.com/users",
+                         verify=False).json()
+    userdict = {}
+    usernamedict = {}
     for user in users:
-        user_id = str(user["id"])  # Convert user ID to string for the dict key
-        username = user["username"]  # Get username for each user
+        uid = user.get("id")
+        userdict[uid] = []
+        usernamedict[uid] = user.get("username")
+    todo = requests.get("http://jsonplaceholder.typicode.com/todos",
+                        verify=False).json()
 
-        # Fetch all tasks for this user
-        todos_url = f"{base_url}todos?userId={user_id}"
-        todos = requests.get(todos_url).json()
+    for task in todo:
+        taskdict = {
+            "task": task.get('title'),
+            "completed": task.get('completed'),
+            "username": usernamedict.get(uid)
+        }
+        uid = task.get("userId")
 
-        # Store tasks in the required format
-        all_tasks[user_id] = [
-            {
-                "username": username,
-                "task": todo["title"],
-                "completed": todo["completed"]
-            }
-            for todo in todos
-        ]
-
-    # Write all tasks to a JSON file named "todo_all_employees.json"
-    json_filename = "todo_all_employees.json"
-    with open(json_filename, 'w') as jsonfile:
-        json.dump(all_tasks, jsonfile, indent=4)
-
-    print("Task data for all employees written to", json_filename)
+        userdict.get(uid).append(taskdict)
+    with open("todo_all_employees.json", 'w') as jsonfile:
+        json.dump(userdict, jsonfile)
