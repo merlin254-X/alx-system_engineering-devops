@@ -1,0 +1,34 @@
+https://app.diagrams.net/#G1LDRdlcvGPLlcKz9hRML0gHC8HP1_tMFz#%7B%22pageId%22%3A%22N41va7ppK75HDcPEnT-l%22%7D
+
+
+
+Why Two Servers?
+Adding multiple servers introduces redundancy and fault tolerance. If one server fails, the others can continue serving requests.
+
+Why Load Balancer (HAProxy)?
+The load balancer distributes incoming HTTP requests across multiple application server instances, improving performance and ensuring high availability.
+
+Load Balancer Distribution Algorithm:
+HAProxy is configured with a round-robin distribution algorithm. It forwards incoming requests in a circular sequence to each application server in turn, evenly distributing the load.
+
+Active-Active vs. Active-Passive Setup:
+This setup is Active-Active. Both application servers are actively serving requests simultaneously. In an Active-Passive setup, one server serves as the primary (active) while the other remains in standby (passive) mode, only becoming active if the primary fails.
+
+How Database Primary-Replica (Master-Slave) Cluster Works:
+In this setup, MySQL operates as a Primary-Replica cluster. The Primary node (Master) accepts write operations and replicates data changes to the Replica nodes (Slaves). The Replica nodes handle read operations, improving scalability and fault tolerance.
+
+Difference Between Primary and Replica Nodes:
+
+Primary Node: Accepts write operations and is responsible for data consistency. It's directly accessed by the application server for write operations.
+Replica Node: Handles read operations and is synchronized with the Primary node. It's used for read-heavy operations, providing scalability and redundancy.
+3. Issues with this Infrastructure:
+Single Point of Failure (SPOF):
+
+The web server, application server, and database server are still potential SPOFs if any of them fail.
+Security Issues:
+
+Lack of a firewall exposes the servers to potential security threats.
+Lack of HTTPS encryption leaves data vulnerable to interception.
+No Monitoring:
+
+There's no monitoring system in place to track server performance, detect failures, or provide insights into traffic patterns and resource utilization. Monitoring is crucial for maintaining and optimizing the infrastructure's health and performance.

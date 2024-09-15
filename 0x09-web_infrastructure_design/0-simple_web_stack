@@ -1,0 +1,35 @@
+https://app.diagrams.net/#G1o3LaZymlCHR6IkfkPdgRdp9uAEkSLnDR#%7B%22pageId%22%3A%22xKFxHSeBz1w7KjV6zdoB%22%7D
+
+
+What is a server?
+A server is a computer system or software that provides functionality or services to other programs or devices, known as clients, within a network.
+
+What is the role of the domain name?
+The domain name is a human-readable address used to identify websites on the internet. It's translated by DNS (Domain Name System) into an IP address, which computers use to communicate with each other.
+
+What type of DNS record is "www" in www.foobar.com?
+"www" is a subdomain, and it typically has an A record (IPv4 address) or AAAA record (IPv6 address) pointing to the server's IP address.
+
+What is the role of the web server?
+The web server (Nginx) handles incoming HTTP requests from clients (users' browsers), serves static content (e.g., HTML, CSS, JavaScript files), and forwards dynamic requests to the application server.
+
+What is the role of the application server?
+The application server (PHP-FPM) executes dynamic code written in PHP, interacts with the database to retrieve or store data, and generates dynamic content based on user requests.
+
+What is the role of the database?
+The database (MySQL) stores and manages structured data related to the website, such as user information, content, and configurations.
+
+What is the server using to communicate with the computer of the user requesting the website?
+The server communicates with the user's computer using the HTTP protocol over the internet. The communication involves sending HTTP responses containing requested web content (HTML, CSS, JavaScript, etc.) back to the user's browser.
+
+3. Issues with this Infrastructure:
+Single Point of Failure (SPOF):
+Since all components are hosted on a single server, any failure in hardware or software could cause the entire website to become inaccessible.
+
+Downtime during Maintenance:
+During maintenance tasks, such as deploying new code or restarting the web server, the website may experience downtime, impacting user accessibility.
+
+Limited Scalability:
+The infrastructure may struggle to handle a significant increase in incoming traffic since it's constrained by the resources of a single server. Scaling horizontally (adding more servers) would be necessary to address this limitation effectively.
+
+This simple infrastructure serves basic web hosting needs but lacks redundancy, scalability, and fault tolerance required for high availability and robustness in production environments.
