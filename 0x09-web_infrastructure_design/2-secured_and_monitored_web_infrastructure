@@ -1,0 +1,28 @@
+https://app.diagrams.net/#G1ptxun_212scAAodS2wzZpoiIpbPAWwB1#%7B%22pageId%22%3A%22_RJRNeLxDAP-LrsEv4j9%22%7D
+
+
+2. Explanation:
+Why Three Firewalls?
+Firewalls are added to each server to control incoming and outgoing network traffic, protecting the servers from unauthorized access and potential security threats.
+
+Why Traffic Served over HTTPS?
+HTTPS encrypts the traffic between the user's browser and the web server, ensuring data confidentiality and integrity, and protecting against eavesdropping and data tampering.
+
+What is Monitoring Used For?
+Monitoring is used to track the performance, availability, and security of the infrastructure and its components. It helps detect issues, optimize performance, and ensure the reliability of the website.
+
+How Monitoring Tool Collects Data?
+The monitoring tool collects data by deploying monitoring clients (data collectors) on each server. These clients gather metrics related to server performance, resource utilization, network traffic, security events, etc., and send them to the monitoring tool for analysis.
+
+Monitoring Web Server QPS:
+To monitor the web server's QPS (Queries Per Second), you can configure the monitoring tool to collect and analyze metrics related to incoming HTTP requests handled by the web server.
+
+3. Issues with this Infrastructure:
+Terminating SSL at the Load Balancer Level:
+Terminating SSL at the load balancer means decrypting the HTTPS traffic at the load balancer before forwarding it to the web server. This can introduce a security risk as the traffic is decrypted before reaching the server.
+
+Single MySQL Server Capable of Accepting Writes:
+Having only one MySQL server capable of accepting writes creates a single point of failure for write operations. If this server fails, write operations to the database will be affected, potentially leading to data loss or service interruption.
+
+Servers with All the Same Components:
+Having servers with identical components (database, web server, application server) might be a problem as it lacks redundancy and fault tolerance. A failure in any component type could impact the entire infrastructure's availability and performance. It's recommended to distribute components across multiple servers for better fault tolerance and scalability.

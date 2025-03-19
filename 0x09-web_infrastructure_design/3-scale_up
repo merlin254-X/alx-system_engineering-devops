@@ -1,0 +1,22 @@
+https://app.diagrams.net/#G1D1HlzSA1lI1RbGPMXAB1lmomBWyRDbwd#%7B%22pageId%22%3A%22EUrC5rp5EvuDxQzyFcvd%22%7D
+
+
+Explanation:
+Why Split Components into Their Own Server?
+Separating components into individual servers improves scalability, fault isolation, and resource allocation. It allows for better management, security, and performance optimization of each component.
+
+Why Use a Load Balancer (HAProxy) Cluster?
+
+High Availability: Configuring HAProxy as a cluster provides redundancy and fault tolerance. If one load balancer fails, the other one takes over, ensuring continuous service availability.
+
+Load Distribution: HAProxy distributes incoming requests across multiple servers, optimizing resource utilization and improving performance.
+
+Why Separate Web Server and Application Server?
+
+
+Nginx (Web Server): Designed to serve static content efficiently and handle incoming HTTP requests. Separating it from the application server allows for better performance and resource utilization.
+Application Server: Handles dynamic content generation, executing server-side scripts, and interacting with the database. Separating it allows for better scalability and management of application-specific tasks.
+
+Conclusion:
+
+Splitting components into separate servers and using a load balancer cluster enhances the scalability, fault tolerance, and performance of the infrastructure. It allows for better resource allocation, security, and management of each component, ensuring a robust and efficient web hosting environment
